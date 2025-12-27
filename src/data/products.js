@@ -1,6 +1,41 @@
 // Product catalog for CarbonCeylon
 // Prices are stored in USD (base currency)
 
+// Available color options for different gem types
+export const gemColorOptions = {
+    "Sapphire": [
+        { name: "Royal Blue", hex: "#1e3a5f" },
+        { name: "Cornflower Blue", hex: "#6495ed" },
+        { name: "Vivid Blue", hex: "#0047ab" },
+        { name: "Light Blue", hex: "#87ceeb" }
+    ],
+    "Ruby": [
+        { name: "Pigeon Blood Red", hex: "#cc0033" },
+        { name: "Vivid Red", hex: "#e60026" },
+        { name: "Deep Red", hex: "#8b0000" }
+    ],
+    "Emerald": [
+        { name: "Vivid Green", hex: "#046307" },
+        { name: "Deep Green", hex: "#013220" },
+        { name: "Medium Green", hex: "#228b22" }
+    ],
+    "Padparadscha": [
+        { name: "Pink-Orange", hex: "#ff6b6b" },
+        { name: "Salmon Pink", hex: "#fa8072" },
+        { name: "Lotus Pink", hex: "#ff91a4" }
+    ],
+    "Yellow Sapphire": [
+        { name: "Canary Yellow", hex: "#ffef00" },
+        { name: "Golden Yellow", hex: "#ffd700" },
+        { name: "Lemon Yellow", hex: "#fff44f" }
+    ],
+    "Pink Sapphire": [
+        { name: "Vivid Pink", hex: "#ff69b4" },
+        { name: "Hot Pink", hex: "#ff1493" },
+        { name: "Rose Pink", hex: "#ff66cc" }
+    ]
+};
+
 // LOOSE GEMSTONES
 export const gemstones = [
     {
@@ -12,6 +47,7 @@ export const gemstones = [
         carat: 3.2,
         origin: "Sri Lanka (Ceylon)",
         color: "Royal Blue",
+        availableColors: ["Royal Blue", "Cornflower Blue", "Vivid Blue"],
         clarity: "VVS - Eye Clean",
         treatment: "Unheated",
         certificate: "LGL",
@@ -31,6 +67,7 @@ export const gemstones = [
         carat: 2.1,
         origin: "Sri Lanka (Ceylon)",
         color: "Pink-Orange",
+        availableColors: ["Pink-Orange", "Salmon Pink", "Lotus Pink"],
         clarity: "VS - Eye Clean",
         treatment: "Unheated",
         certificate: "LGL",
@@ -50,6 +87,7 @@ export const gemstones = [
         carat: 1.8,
         origin: "Myanmar (Burma)",
         color: "Pigeon Blood Red",
+        availableColors: ["Pigeon Blood Red", "Vivid Red", "Deep Red"],
         clarity: "VS",
         treatment: "Heated",
         certificate: "LGL",
@@ -69,6 +107,7 @@ export const gemstones = [
         carat: 4.2,
         origin: "Colombia (Muzo)",
         color: "Vivid Green",
+        availableColors: ["Vivid Green", "Deep Green", "Medium Green"],
         clarity: "VS - Minor Garden",
         treatment: "Minor Oil",
         certificate: "LGL",
@@ -88,6 +127,7 @@ export const gemstones = [
         carat: 5.1,
         origin: "Sri Lanka (Ceylon)",
         color: "Canary Yellow",
+        availableColors: ["Canary Yellow", "Golden Yellow", "Lemon Yellow"],
         clarity: "VVS - Loupe Clean",
         treatment: "Unheated",
         certificate: "LGL",
@@ -107,6 +147,7 @@ export const gemstones = [
         carat: 2.8,
         origin: "Sri Lanka (Ceylon)",
         color: "Vivid Pink",
+        availableColors: ["Vivid Pink", "Hot Pink", "Rose Pink"],
         clarity: "VVS",
         treatment: "Unheated",
         certificate: "LGL",
@@ -211,3 +252,8 @@ export const getProductBySlug = (slug) => products.find(p => p.slug === slug);
 export const getFeaturedGemstones = () => gemstones.filter(g => g.featured);
 export const getFeaturedJewelry = () => jewelry.filter(j => j.featured);
 export const getFeaturedProducts = () => products.filter(p => p.featured);
+export const getColorHex = (gemType, colorName) => {
+    const colors = gemColorOptions[gemType] || [];
+    const color = colors.find(c => c.name === colorName);
+    return color ? color.hex : '#cccccc';
+};
