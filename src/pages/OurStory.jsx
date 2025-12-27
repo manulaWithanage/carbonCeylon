@@ -30,7 +30,7 @@ const OurStory = () => {
                             className="space-y-6"
                         >
                             <h2 className="text-4xl font-heading">A Legacy of Brilliance</h2>
-                            <div className="w-16 h-1 bg-[#d4af37]" />
+                            <div className="w-16 h-1 bg-[#0d9488]" />
                             <p className="text-[#44403c] leading-relaxed">
                                 Carbon Ceylon was born from a passion for Sri Lanka's legendary gemstones.
                                 For centuries, this island nation has been renowned as the "Island of Gems,"
@@ -69,7 +69,7 @@ const OurStory = () => {
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-heading mb-4">Our Values</h2>
-                        <div className="w-16 h-1 bg-[#d4af37] mx-auto" />
+                        <div className="w-16 h-1 bg-[#0d9488] mx-auto" />
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -87,7 +87,7 @@ const OurStory = () => {
                                 transition={{ delay: i * 0.1 }}
                                 className="text-center p-8"
                             >
-                                <value.icon className="w-12 h-12 text-[#d4af37] mx-auto mb-4" />
+                                <value.icon className="w-12 h-12 text-[#0d9488] mx-auto mb-4" />
                                 <h3 className="font-heading text-xl mb-2">{value.title}</h3>
                                 <p className="text-sm text-[#44403c]">{value.desc}</p>
                             </motion.div>
@@ -110,7 +110,7 @@ const OurStory = () => {
                             creating heirloom pieces that celebrate life's precious moments while
                             preserving traditional craftsmanship for future generations."
                         </p>
-                        <div className="mt-8 w-24 h-1 bg-[#d4af37] mx-auto" />
+                        <div className="mt-8 w-24 h-1 bg-[#0d9488] mx-auto" />
                     </motion.div>
                 </div>
             </section>

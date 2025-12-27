@@ -17,7 +17,7 @@ const ProductDetail = () => {
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
                     <h1 className="text-3xl font-heading mb-4">Product Not Found</h1>
-                    <Link to="/collection" className="text-[#d4af37] underline">Back to Collection</Link>
+                    <Link to="/collection" className="text-[#0d9488] underline">Back to Collection</Link>
                 </div>
             </div>
         );
@@ -27,7 +27,7 @@ const ProductDetail = () => {
         <div className="min-h-screen bg-white pt-32 pb-20">
             <div className="premium-container">
                 {/* Breadcrumb */}
-                <Link to="/collection" className="inline-flex items-center gap-2 text-sm text-[#44403c] hover:text-[#d4af37] mb-8">
+                <Link to="/collection" className="inline-flex items-center gap-2 text-sm text-[#44403c] hover:text-[#0d9488] mb-8">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Collection
                 </Link>
@@ -46,7 +46,7 @@ const ProductDetail = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <div className="absolute top-4 left-4 bg-[#d4af37] text-white px-3 py-1 text-xs uppercase tracking-wider">
+                        <div className="absolute top-4 left-4 bg-[#0d9488] text-white px-3 py-1 text-xs uppercase tracking-wider">
                             {product.specs.treatment}
                         </div>
                     </motion.div>
@@ -61,7 +61,7 @@ const ProductDetail = () => {
                         <div>
                             <p className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-2">{product.category}</p>
                             <h1 className="text-4xl font-heading mb-4">{product.name}</h1>
-                            <p className="text-3xl text-[#d4af37] font-serif italic">{formatPrice(product.priceUSD, currency)}</p>
+                            <p className="text-3xl text-[#0d9488] font-serif italic">{formatPrice(product.priceUSD, currency)}</p>
                         </div>
 
                         <p className="text-[#44403c] leading-relaxed">{product.description}</p>
@@ -92,7 +92,7 @@ const ProductDetail = () => {
                         {/* Add to Cart */}
                         <button
                             onClick={() => addItem(product)}
-                            className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#d4af37] transition-colors"
+                            className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#0d9488] transition-colors"
                         >
                             <ShoppingBag className="w-5 h-5" />
                             Add to Cart
@@ -101,15 +101,15 @@ const ProductDetail = () => {
                         {/* Trust Badges */}
                         <div className="grid grid-cols-3 gap-4 pt-4">
                             <div className="text-center">
-                                <Shield className="w-6 h-6 mx-auto mb-2 text-[#d4af37]" />
+                                <Shield className="w-6 h-6 mx-auto mb-2 text-[#0d9488]" />
                                 <p className="text-xs">Certified Authentic</p>
                             </div>
                             <div className="text-center">
-                                <Truck className="w-6 h-6 mx-auto mb-2 text-[#d4af37]" />
+                                <Truck className="w-6 h-6 mx-auto mb-2 text-[#0d9488]" />
                                 <p className="text-xs">Insured Shipping</p>
                             </div>
                             <div className="text-center">
-                                <Award className="w-6 h-6 mx-auto mb-2 text-[#d4af37]" />
+                                <Award className="w-6 h-6 mx-auto mb-2 text-[#0d9488]" />
                                 <p className="text-xs">Lifetime Warranty</p>
                             </div>
                         </div>

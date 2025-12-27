@@ -69,7 +69,7 @@ const Collection = () => {
                                         key={cat}
                                         onClick={() => { setSelectedCategory(cat); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors ${selectedCategory === cat
-                                                ? 'bg-[#d4af37] text-white'
+                                                ? 'bg-[#0d9488] text-white'
                                                 : 'hover:bg-[#f3e5ab]'
                                             }`}
                                     >
@@ -87,7 +87,7 @@ const Collection = () => {
                                         key={gem}
                                         onClick={() => { setSelectedGem(gem); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors ${selectedGem === gem
-                                                ? 'bg-[#d4af37] text-white'
+                                                ? 'bg-[#0d9488] text-white'
                                                 : 'hover:bg-[#f3e5ab]'
                                             }`}
                                     >
@@ -123,12 +123,12 @@ const Collection = () => {
                                     <div className="space-y-2">
                                         <p className="text-[10px] tracking-[0.2em] uppercase text-gray-500">{product.category}</p>
                                         <Link to={`/product/${product.slug}`}>
-                                            <h3 className="font-heading text-lg group-hover:text-[#d4af37] transition-colors">{product.name}</h3>
+                                            <h3 className="font-heading text-lg group-hover:text-[#0d9488] transition-colors">{product.name}</h3>
                                         </Link>
-                                        <p className="text-[#d4af37] font-serif italic">{formatPrice(product.priceUSD, currency)}</p>
+                                        <p className="text-[#0d9488] font-serif italic">{formatPrice(product.priceUSD, currency)}</p>
                                         <button
                                             onClick={() => addItem(product)}
-                                            className="w-full mt-3 py-3 bg-[#1c1917] text-white text-xs uppercase tracking-widest hover:bg-[#d4af37] transition-colors"
+                                            className="w-full mt-3 py-3 bg-[#1c1917] text-white text-xs uppercase tracking-widest hover:bg-[#0d9488] transition-colors"
                                         >
                                             Add to Cart
                                         </button>

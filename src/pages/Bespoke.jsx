@@ -33,7 +33,7 @@ const Bespoke = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-center max-w-md p-8"
                 >
-                    <CheckCircle className="w-16 h-16 text-[#d4af37] mx-auto mb-6" />
+                    <CheckCircle className="w-16 h-16 text-[#0d9488] mx-auto mb-6" />
                     <h2 className="text-3xl font-heading mb-4">Thank You!</h2>
                     <p className="text-[#44403c]">
                         Your bespoke inquiry has been received. Our master craftsmen will review your request
@@ -74,7 +74,7 @@ const Bespoke = () => {
                             transition={{ delay: i * 0.1 }}
                             className="text-center p-8 bg-white shadow-sm"
                         >
-                            <feature.icon className="w-10 h-10 text-[#d4af37] mx-auto mb-4" />
+                            <feature.icon className="w-10 h-10 text-[#0d9488] mx-auto mb-4" />
                             <h3 className="font-heading text-xl mb-2">{feature.title}</h3>
                             <p className="text-sm text-[#44403c]">{feature.desc}</p>
                         </motion.div>
@@ -100,7 +100,7 @@ const Bespoke = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors"
                                 />
                             </div>
                             <div>
@@ -111,7 +111,7 @@ const Bespoke = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors"
                                 />
                             </div>
                         </div>
@@ -124,7 +124,7 @@ const Bespoke = () => {
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors"
                                 />
                             </div>
                             <div>
@@ -133,7 +133,7 @@ const Bespoke = () => {
                                     name="gemType"
                                     value={formData.gemType}
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors bg-white"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors bg-white"
                                 >
                                     <option value="">Select...</option>
                                     <option value="sapphire">Blue Sapphire</option>
@@ -153,7 +153,7 @@ const Bespoke = () => {
                                     name="metalType"
                                     value={formData.metalType}
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors bg-white"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors bg-white"
                                 >
                                     <option value="">Select...</option>
                                     <option value="white-gold">18k White Gold</option>
@@ -168,7 +168,7 @@ const Bespoke = () => {
                                     name="budget"
                                     value={formData.budget}
                                     onChange={handleChange}
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors bg-white"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors bg-white"
                                 >
                                     <option value="">Select...</option>
                                     <option value="5000-10000">$5,000 - $10,000</option>
@@ -188,13 +188,13 @@ const Bespoke = () => {
                                 required
                                 rows={5}
                                 placeholder="Tell us about the piece you envision..."
-                                className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors resize-none"
+                                className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors resize-none"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest hover:bg-[#d4af37] transition-colors"
+                            className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest hover:bg-[#0d9488] transition-colors"
                         >
                             Submit Inquiry
                         </button>

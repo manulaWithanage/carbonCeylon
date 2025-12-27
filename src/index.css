@@ -14,12 +14,16 @@
   --text-secondary: #44403c;
   /* Stone 700 */
 
-  --accent-gold: #d4af37;
-  --accent-gold-light: #f3e5ab;
-  --accent-gold-dark: #b89628;
+  /* Teal/Turquoise accent to match logo */
+  --accent-primary: #0d9488;
+  /* Teal 600 */
+  --accent-light: #99f6e4;
+  /* Teal 200 */
+  --accent-dark: #0f766e;
+  /* Teal 700 */
 
   --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(212, 175, 55, 0.2);
+  --glass-border: rgba(13, 148, 136, 0.2);
 
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Raleway', sans-serif;

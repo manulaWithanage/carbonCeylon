@@ -24,7 +24,7 @@ const CurrencySelector = () => {
         <div className="relative" ref={ref}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-1 text-sm hover:text-[#d4af37] transition-colors"
+                className="flex items-center gap-1 text-sm hover:text-[#0d9488] transition-colors"
             >
                 <Globe className="w-4 h-4" />
                 <span>{currencySymbols[currency]} {currency}</span>
@@ -37,7 +37,7 @@ const CurrencySelector = () => {
                         <button
                             key={curr}
                             onClick={() => { changeCurrency(curr); setIsOpen(false); }}
-                            className={`w-full text-left px-4 py-2 text-sm flex justify-between items-center hover:bg-[#fafaf9] transition-colors ${currency === curr ? 'text-[#d4af37] font-medium' : ''
+                            className={`w-full text-left px-4 py-2 text-sm flex justify-between items-center hover:bg-[#fafaf9] transition-colors ${currency === curr ? 'text-[#0d9488] font-medium' : ''
                                 }`}
                         >
                             <span>{currencyNames[curr]}</span>

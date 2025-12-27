@@ -34,7 +34,7 @@ const ProductShowcase = () => {
                     className="text-center mb-16 space-y-4"
                 >
                     <h2 className="text-4xl font-heading text-[#1c1917]">Curated Masterpieces</h2>
-                    <div className="w-24 h-1 bg-[#d4af37] mx-auto" />
+                    <div className="w-24 h-1 bg-[#0d9488] mx-auto" />
                     <p className="text-[#44403c] max-w-2xl mx-auto font-light">
                         Each piece is a testament to nature's beauty and human craftsmanship.
                         Hand-selected, ethically sourced, and perfectly cut.
@@ -65,12 +65,12 @@ const ProductShowcase = () => {
                             <div className="text-center space-y-2">
                                 <p className="text-[10px] tracking-[0.2em] uppercase text-gray-500">{product.category}</p>
                                 <Link to={`/product/${product.slug}`}>
-                                    <h3 className="text-xl font-heading font-medium group-hover:text-[#d4af37] transition-colors">{product.name}</h3>
+                                    <h3 className="text-xl font-heading font-medium group-hover:text-[#0d9488] transition-colors">{product.name}</h3>
                                 </Link>
-                                <p className="text-[#d4af37] font-serif italic text-lg">{formatPrice(product.priceUSD, currency)}</p>
+                                <p className="text-[#0d9488] font-serif italic text-lg">{formatPrice(product.priceUSD, currency)}</p>
                                 <button
                                     onClick={() => addItem(product)}
-                                    className="mt-3 px-8 py-3 bg-[#1c1917] text-white text-xs uppercase tracking-widest hover:bg-[#d4af37] transition-colors"
+                                    className="mt-3 px-8 py-3 bg-[#1c1917] text-white text-xs uppercase tracking-widest hover:bg-[#0d9488] transition-colors"
                                 >
                                     Add to Cart
                                 </button>
@@ -88,7 +88,7 @@ const ProductShowcase = () => {
                 >
                     <Link
                         to="/collection"
-                        className="text-[#1c1917] border-b border-[#1c1917] pb-1 uppercase tracking-widest hover:text-[#d4af37] hover:border-[#d4af37] transition-colors hover:tracking-[0.2em] duration-300 text-sm"
+                        className="text-[#1c1917] border-b border-[#1c1917] pb-1 uppercase tracking-widest hover:text-[#0d9488] hover:border-[#0d9488] transition-colors hover:tracking-[0.2em] duration-300 text-sm"
                     >
                         View All Collections
                     </Link>

@@ -32,7 +32,7 @@ const CartDrawer = () => {
                         {/* Header */}
                         <div className="flex items-center justify-between p-6 border-b">
                             <h2 className="font-heading text-xl">Your Cart ({items.length})</h2>
-                            <button onClick={closeCart} className="hover:text-[#d4af37] transition-colors">
+                            <button onClick={closeCart} className="hover:text-[#0d9488] transition-colors">
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
@@ -57,7 +57,7 @@ const CartDrawer = () => {
                                             <div className="flex-1 min-w-0">
                                                 <h4 className="font-medium truncate">{item.name}</h4>
                                                 <p className="text-sm text-gray-500">{item.category}</p>
-                                                <p className="text-[#d4af37] font-serif italic mt-1">
+                                                <p className="text-[#0d9488] font-serif italic mt-1">
                                                     {formatPrice(item.priceUSD, currency)}
                                                 </p>
 
@@ -65,14 +65,14 @@ const CartDrawer = () => {
                                                     <div className="flex items-center gap-3">
                                                         <button
                                                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                            className="w-8 h-8 border border-gray-300 flex items-center justify-center hover:border-[#d4af37] transition-colors"
+                                                            className="w-8 h-8 border border-gray-300 flex items-center justify-center hover:border-[#0d9488] transition-colors"
                                                         >
                                                             <Minus className="w-4 h-4" />
                                                         </button>
                                                         <span className="font-medium">{item.quantity}</span>
                                                         <button
                                                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                            className="w-8 h-8 border border-gray-300 flex items-center justify-center hover:border-[#d4af37] transition-colors"
+                                                            className="w-8 h-8 border border-gray-300 flex items-center justify-center hover:border-[#0d9488] transition-colors"
                                                         >
                                                             <Plus className="w-4 h-4" />
                                                         </button>
@@ -96,10 +96,10 @@ const CartDrawer = () => {
                             <div className="border-t p-6 space-y-4">
                                 <div className="flex justify-between text-lg">
                                     <span className="font-heading">Subtotal</span>
-                                    <span className="font-bold text-[#d4af37]">{formatPrice(totalPriceUSD, currency)}</span>
+                                    <span className="font-bold text-[#0d9488]">{formatPrice(totalPriceUSD, currency)}</span>
                                 </div>
                                 <p className="text-xs text-gray-500">Shipping calculated at checkout</p>
-                                <button className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest hover:bg-[#d4af37] transition-colors">
+                                <button className="w-full py-4 bg-[#0d9488] text-white uppercase tracking-widest hover:bg-[#0f766e] transition-colors">
                                     Checkout
                                 </button>
                             </div>

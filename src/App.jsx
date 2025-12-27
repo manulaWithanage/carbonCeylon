@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <CurrencyProvider>
         <CartProvider>
-          <div className="antialiased selection:bg-[#d4af37] selection:text-white">
+          <div className="antialiased selection:bg-[#0d9488] selection:text-white">
             <Navbar />
             <CartDrawer />
             <main>

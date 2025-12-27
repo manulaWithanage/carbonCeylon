@@ -20,8 +20,12 @@ const Footer = () => {
             <div className="premium-container grid md:grid-cols-4 gap-12 mb-16">
                 {/* Brand */}
                 <div className="space-y-6">
-                    <Link to="/" className="text-2xl font-bold font-heading tracking-widest">
-                        CARBON<span className="text-[#d4af37]">CEYLON</span>
+                    <Link to="/" className="block">
+                        <img
+                            src="/images/logo.png"
+                            alt="Carbon Ceylon"
+                            className="h-12 w-auto brightness-0 invert"
+                        />
                     </Link>
                     <p className="text-gray-400 text-sm leading-relaxed">
                         Ethically sourced gemstones from the heart of Sri Lanka.
@@ -29,20 +33,20 @@ const Footer = () => {
                     </p>
                     <div className="flex gap-4">
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                            <Instagram className="w-5 h-5 hover:text-[#d4af37] cursor-pointer transition-colors" />
+                            <Instagram className="w-5 h-5 hover:text-[#0d9488] cursor-pointer transition-colors" />
                         </a>
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                            <Facebook className="w-5 h-5 hover:text-[#d4af37] cursor-pointer transition-colors" />
+                            <Facebook className="w-5 h-5 hover:text-[#0d9488] cursor-pointer transition-colors" />
                         </a>
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            <Twitter className="w-5 h-5 hover:text-[#d4af37] cursor-pointer transition-colors" />
+                            <Twitter className="w-5 h-5 hover:text-[#0d9488] cursor-pointer transition-colors" />
                         </a>
                     </div>
                 </div>
 
                 {/* Links */}
                 <div>
-                    <h4 className="font-heading text-lg mb-6 text-[#d4af37]">Explore</h4>
+                    <h4 className="font-heading text-lg mb-6 text-[#0d9488]">Explore</h4>
                     <ul className="space-y-4 text-sm text-gray-400">
                         <li><Link to="/our-story" className="hover:text-white transition-colors">Our Heritage</Link></li>
                         <li><Link to="/collection" className="hover:text-white transition-colors">The Collection</Link></li>
@@ -53,16 +57,16 @@ const Footer = () => {
 
                 {/* Contact */}
                 <div>
-                    <h4 className="font-heading text-lg mb-6 text-[#d4af37]">Contact</h4>
+                    <h4 className="font-heading text-lg mb-6 text-[#0d9488]">Contact</h4>
                     <ul className="space-y-4 text-sm text-gray-400">
                         <li className="flex items-center gap-2">
-                            <Mail className="w-4 h-4 text-[#d4af37]" />
+                            <Mail className="w-4 h-4 text-[#0d9488]" />
                             hello@carbonceylon.com
                         </li>
                         <li>Colombo, Sri Lanka</li>
                         <li>+94 77 123 4567</li>
                         <li className="pt-2">
-                            <Link to="/contact" className="text-[#d4af37] hover:text-white transition-colors">
+                            <Link to="/contact" className="text-[#0d9488] hover:text-white transition-colors">
                                 Get in Touch →
                             </Link>
                         </li>
@@ -71,7 +75,7 @@ const Footer = () => {
 
                 {/* Newsletter */}
                 <div>
-                    <h4 className="font-heading text-lg mb-6 text-[#d4af37]">Newsletter</h4>
+                    <h4 className="font-heading text-lg mb-6 text-[#0d9488]">Newsletter</h4>
                     {subscribed ? (
                         <div className="flex items-center gap-2 text-green-400">
                             <CheckCircle className="w-5 h-5" />
@@ -87,11 +91,11 @@ const Footer = () => {
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Your Email"
                                     required
-                                    className="bg-white/10 border border-white/20 p-3 text-sm text-white focus:outline-none focus:border-[#d4af37] transition-colors"
+                                    className="bg-white/10 border border-white/20 p-3 text-sm text-white focus:outline-none focus:border-[#0d9488] transition-colors"
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-[#d4af37] text-[#1c1917] hover:bg-white hover:text-[#1c1917] transition-colors p-3 text-sm font-bold uppercase tracking-wider"
+                                    className="bg-[#0d9488] text-white hover:bg-[#0f766e] transition-colors p-3 text-sm font-bold uppercase tracking-wider"
                                 >
                                     Subscribe
                                 </button>

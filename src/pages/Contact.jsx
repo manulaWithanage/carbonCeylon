@@ -29,7 +29,7 @@ const Contact = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-center max-w-md p-8"
                 >
-                    <CheckCircle className="w-16 h-16 text-[#d4af37] mx-auto mb-6" />
+                    <CheckCircle className="w-16 h-16 text-[#0d9488] mx-auto mb-6" />
                     <h2 className="text-3xl font-heading mb-4">Message Sent!</h2>
                     <p className="text-[#44403c]">
                         Thank you for reaching out. Our team will respond to your inquiry within 24-48 hours.
@@ -67,27 +67,27 @@ const Contact = () => {
 
                             <div className="space-y-6">
                                 <div className="flex gap-4">
-                                    <Mail className="w-5 h-5 text-[#d4af37] shrink-0 mt-1" />
+                                    <Mail className="w-5 h-5 text-[#0d9488] shrink-0 mt-1" />
                                     <div>
                                         <p className="font-medium">Email</p>
-                                        <a href="mailto:hello@carbonceylon.com" className="text-[#44403c] hover:text-[#d4af37]">
+                                        <a href="mailto:hello@carbonceylon.com" className="text-[#44403c] hover:text-[#0d9488]">
                                             hello@carbonceylon.com
                                         </a>
                                     </div>
                                 </div>
 
                                 <div className="flex gap-4">
-                                    <Phone className="w-5 h-5 text-[#d4af37] shrink-0 mt-1" />
+                                    <Phone className="w-5 h-5 text-[#0d9488] shrink-0 mt-1" />
                                     <div>
                                         <p className="font-medium">Phone</p>
-                                        <a href="tel:+94771234567" className="text-[#44403c] hover:text-[#d4af37]">
+                                        <a href="tel:+94771234567" className="text-[#44403c] hover:text-[#0d9488]">
                                             +94 77 123 4567
                                         </a>
                                     </div>
                                 </div>
 
                                 <div className="flex gap-4">
-                                    <MapPin className="w-5 h-5 text-[#d4af37] shrink-0 mt-1" />
+                                    <MapPin className="w-5 h-5 text-[#0d9488] shrink-0 mt-1" />
                                     <div>
                                         <p className="font-medium">Showroom</p>
                                         <p className="text-[#44403c]">
@@ -98,7 +98,7 @@ const Contact = () => {
                                 </div>
 
                                 <div className="flex gap-4">
-                                    <Clock className="w-5 h-5 text-[#d4af37] shrink-0 mt-1" />
+                                    <Clock className="w-5 h-5 text-[#0d9488] shrink-0 mt-1" />
                                     <div>
                                         <p className="font-medium">Hours</p>
                                         <p className="text-[#44403c]">
@@ -130,7 +130,7 @@ const Contact = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors"
+                                        className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -141,7 +141,7 @@ const Contact = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors"
+                                        className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors"
                                     />
                                 </div>
                             </div>
@@ -154,7 +154,7 @@ const Contact = () => {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     required
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors"
                                 />
                             </div>
 
@@ -166,13 +166,13 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     rows={6}
-                                    className="w-full border border-gray-300 p-3 focus:border-[#d4af37] focus:outline-none transition-colors resize-none"
+                                    className="w-full border border-gray-300 p-3 focus:border-[#0d9488] focus:outline-none transition-colors resize-none"
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest hover:bg-[#d4af37] transition-colors"
+                                className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest hover:bg-[#0d9488] transition-colors"
                             >
                                 Send Message
                             </button>
