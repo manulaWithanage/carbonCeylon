@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -50,13 +51,19 @@ const Hero = () => {
                         transition={{ delay: 0.8 }}
                         className="flex gap-6 pt-4"
                     >
-                        <button className="bg-[#1c1917] text-white px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-[#d4af37] transition-colors duration-300 flex items-center gap-2 group">
+                        <Link
+                            to="/collection"
+                            className="bg-[#1c1917] text-white px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-[#d4af37] transition-colors duration-300 flex items-center gap-2 group"
+                        >
                             Explore Collection
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                        <button className="px-8 py-4 uppercase tracking-widest text-xs font-bold border border-[#1c1917] hover:border-[#d4af37] hover:text-[#d4af37] transition-colors duration-300">
+                        </Link>
+                        <Link
+                            to="/bespoke"
+                            className="px-8 py-4 uppercase tracking-widest text-xs font-bold border border-[#1c1917] hover:border-[#d4af37] hover:text-[#d4af37] transition-colors duration-300"
+                        >
                             Bespoke Service
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
 
@@ -89,7 +96,7 @@ const Hero = () => {
                     >
                         <p className="font-heading text-lg font-bold">Royal Blue</p>
                         <p className="text-sm text-gray-500">2.5 Carat Sapphire</p>
-                        <p className="mt-2 text-[#d4af37] font-bold">$12,500</p>
+                        <p className="mt-2 text-[#d4af37] font-bold">From $12,500</p>
                     </motion.div>
                 </motion.div>
 

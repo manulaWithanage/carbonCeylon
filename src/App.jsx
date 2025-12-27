@@ -1,18 +1,39 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CurrencyProvider } from './context/CurrencyContext';
+import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProductShowcase from './components/ProductShowcase';
 import Footer from './components/Footer';
+import CartDrawer from './components/CartDrawer';
+import Home from './pages/Home';
+import Collection from './pages/Collection';
+import ProductDetail from './pages/ProductDetail';
+import Bespoke from './pages/Bespoke';
+import OurStory from './pages/OurStory';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="antialiased selection:bg-[#d4af37] selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <ProductShowcase />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <CurrencyProvider>
+        <CartProvider>
+          <div className="antialiased selection:bg-[#d4af37] selection:text-white">
+            <Navbar />
+            <CartDrawer />
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/collection" element={<Collection />} />
+                <Route path="/product/:slug" element={<ProductDetail />} />
+                <Route path="/bespoke" element={<Bespoke />} />
+                <Route path="/our-story" element={<OurStory />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </CartProvider>
+      </CurrencyProvider>
+    </BrowserRouter>
   );
 }
 
