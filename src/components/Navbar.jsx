@@ -20,9 +20,6 @@ const Navbar = () => {
   const { openCart, totalItems } = useCart();
   const location = useLocation();
 
-  // Check if on dark page
-  const isDarkPage = ['/', '/gemstones'].includes(location.pathname) || location.pathname.startsWith('/gemstone/');
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -35,16 +32,13 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location]);
 
-  const textColor = scrolled ? 'text-[#1c1917]' : (isDarkPage ? 'text-white' : 'text-[#1c1917]');
-  const logoTextColor = scrolled ? 'text-[#1c1917]' : (isDarkPage ? 'text-white' : 'text-[#1c1917]');
-
   return (
     <>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 w-full z-40 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'
+        className={`fixed top-0 w-full z-40 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-white/80 backdrop-blur-sm py-5'
           }`}
       >
         <div className="premium-container flex justify-between items-center">
@@ -53,15 +47,15 @@ const Navbar = () => {
             <img
               src="/images/logo.png"
               alt="Carbon Ceylon"
-              className={`h-12 w-auto ${!scrolled && isDarkPage ? 'brightness-0 invert' : ''}`}
+              className="h-12 w-auto"
             />
-            <span className={`text-xl font-bold font-heading tracking-wider ${logoTextColor}`}>
+            <span className="text-xl font-bold font-heading tracking-wider text-[#1c1917]">
               CARBON<span className="text-[#0d9488]">CEYLON</span>
             </span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className={`hidden lg:flex gap-10 font-body text-xs tracking-[0.15em] uppercase font-semibold ${textColor}`}>
+          <div className="hidden lg:flex gap-10 font-body text-xs tracking-[0.15em] uppercase font-semibold text-[#44403c]">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -76,8 +70,8 @@ const Navbar = () => {
           </div>
 
           {/* Icons */}
-          <div className={`flex gap-6 items-center ${textColor}`}>
-            <CurrencySelector isDark={!scrolled && isDarkPage} />
+          <div className="flex gap-6 items-center text-[#1c1917]">
+            <CurrencySelector />
             <Search className="w-5 h-5 cursor-pointer hover:text-[#0d9488] transition-colors hidden md:block" />
             <button
               onClick={openCart}

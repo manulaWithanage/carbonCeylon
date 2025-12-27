@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { getFeaturedJewelry } from '../data/products';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
@@ -20,15 +20,17 @@ const JewelryShowcase = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <span className="text-[#0d9488] text-xs tracking-[0.3em] uppercase mb-4 block">Handcrafted Excellence</span>
-                    <h2 className="text-4xl font-heading text-[#1c1917] mb-4">Fine Jewelry Collection</h2>
-                    <div className="w-24 h-1 bg-[#0d9488] mx-auto mb-6" />
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0d9488]/10 rounded-full text-[#0d9488] text-xs tracking-[0.2em] uppercase mb-6">
+                        <Sparkles className="w-4 h-4" />
+                        Handcrafted Excellence
+                    </div>
+                    <h2 className="text-4xl lg:text-5xl font-heading text-[#1c1917] mb-4">Fine Jewelry Collection</h2>
                     <p className="text-[#44403c] max-w-xl mx-auto">
-                        Each piece is meticulously handcrafted by master artisans, featuring our signature Ceylon gemstones.
+                        Masterpieces featuring signature Ceylon gems, crafted by artisans with generations of expertise.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {products.map((product, index) => (
                         <motion.div
                             key={product.id}
@@ -39,23 +41,21 @@ const JewelryShowcase = () => {
                             className="group"
                         >
                             <Link to={`/product/${product.slug}`}>
-                                <div className="relative overflow-hidden h-[450px] mb-6 bg-white shadow-lg">
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 z-10 transition-colors duration-500" />
-                                    <motion.img
-                                        whileHover={{ scale: 1.05 }}
-                                        transition={{ duration: 0.7 }}
+                                <div className="relative overflow-hidden h-[450px] mb-6 bg-white shadow-lg shadow-black/5 group-hover:shadow-xl transition-shadow">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 z-10 transition-opacity" />
+                                    <img
                                         src={product.images[0]}
                                         alt={product.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
                             </Link>
                             <div className="text-center space-y-3">
-                                <p className="text-[10px] tracking-[0.2em] uppercase text-gray-500">{product.category}</p>
+                                <p className="text-[10px] tracking-[0.2em] uppercase text-[#0d9488] font-medium">{product.category}</p>
                                 <Link to={`/product/${product.slug}`}>
                                     <h3 className="text-xl font-heading group-hover:text-[#0d9488] transition-colors">{product.name}</h3>
                                 </Link>
-                                <p className="text-[#0d9488] font-serif italic text-lg">{formatPrice(product.priceUSD, currency)}</p>
+                                <p className="text-[#0d9488] font-semibold text-xl">{formatPrice(product.priceUSD, currency)}</p>
                                 <button
                                     onClick={() => addItem(product)}
                                     className="mt-4 px-8 py-3 bg-[#1c1917] text-white text-xs uppercase tracking-widest hover:bg-[#0d9488] transition-colors"

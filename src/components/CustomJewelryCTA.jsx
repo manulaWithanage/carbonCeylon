@@ -1,96 +1,135 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Gem, ArrowRight, Sparkles } from 'lucide-react';
+import { Gem, ArrowRight, Palette, Crown, Sparkles } from 'lucide-react';
 
 const CustomJewelryCTA = () => {
     return (
-        <section className="py-24 bg-gradient-to-br from-[#0d9488] to-[#0f766e] relative overflow-hidden">
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <section className="py-24 bg-white relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0d9488]/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0d9488]/30 to-transparent" />
 
-            <div className="premium-container relative z-10">
+            <div className="premium-container">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-                    {/* Content */}
+                    {/* Left - Content */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="text-white"
                     >
-                        <div className="flex items-center gap-3 mb-6">
-                            <Gem className="w-8 h-8" />
-                            <Sparkles className="w-6 h-6" />
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0d9488]/10 rounded-full text-[#0d9488] text-xs tracking-[0.2em] uppercase mb-6">
+                            <Crown className="w-4 h-4" />
+                            Bespoke Service
                         </div>
-                        <h2 className="text-4xl lg:text-5xl font-heading mb-6 leading-tight">
-                            Craft Your Vision.<br />
-                            <span className="font-light italic">Choose Your Stone.</span>
+
+                        <h2 className="text-4xl lg:text-5xl font-heading text-[#1c1917] mb-6 leading-tight">
+                            Create Your<br />
+                            <span className="text-[#0d9488] italic font-light">Dream Piece</span>
                         </h2>
-                        <p className="text-white/80 text-lg mb-8 max-w-md leading-relaxed">
-                            Select any gemstone from our collection and work with our master artisans to create a
-                            one-of-a-kind piece that tells your story.
+
+                        <p className="text-[#44403c] text-lg mb-8 max-w-md leading-relaxed">
+                            Choose any gemstone from our collection and work with our master artisans
+                            to craft a one-of-a-kind piece that tells your story.
                         </p>
 
-                        <div className="space-y-4 mb-10">
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">1</div>
-                                <p className="text-white/90">Choose your perfect gemstone</p>
+                        {/* Process Steps */}
+                        <div className="space-y-6 mb-10">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-[#0d9488] text-white flex items-center justify-center font-bold shrink-0">
+                                    1
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-[#1c1917] mb-1">Select Your Stone</p>
+                                    <p className="text-sm text-gray-500">Browse our certified gemstone collection</p>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">2</div>
-                                <p className="text-white/90">Design your custom setting</p>
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-[#0d9488] text-white flex items-center justify-center font-bold shrink-0">
+                                    2
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-[#1c1917] mb-1">Design Together</p>
+                                    <p className="text-sm text-gray-500">Work with our artisans on your custom setting</p>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">3</div>
-                                <p className="text-white/90">Receive your handcrafted masterpiece</p>
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-[#0d9488] text-white flex items-center justify-center font-bold shrink-0">
+                                    3
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-[#1c1917] mb-1">Receive Your Masterpiece</p>
+                                    <p className="text-sm text-gray-500">Handcrafted and delivered with full certification</p>
+                                </div>
                             </div>
                         </div>
 
                         <Link
                             to="/bespoke"
-                            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#0d9488] uppercase tracking-widest text-sm font-bold hover:bg-[#1c1917] hover:text-white transition-all"
+                            className="inline-flex items-center gap-3 px-10 py-5 bg-[#0d9488] text-white uppercase tracking-widest text-sm font-medium hover:bg-[#0f766e] transition-all shadow-lg shadow-[#0d9488]/20"
                         >
+                            <Sparkles className="w-5 h-5" />
                             Start Your Journey
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                     </motion.div>
 
-                    {/* Image/Visual */}
+                    {/* Right - Visual */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="relative hidden lg:block"
+                        className="relative"
                     >
-                        <div className="relative w-full h-[500px]">
-                            {/* Floating gem cards */}
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ repeat: Infinity, duration: 4 }}
-                                className="absolute top-0 left-0 bg-white/10 backdrop-blur p-6 rounded-lg border border-white/20"
-                            >
-                                <p className="text-white/80 text-xs uppercase tracking-wider mb-2">Selected Stone</p>
-                                <p className="text-white font-heading text-lg">Blue Sapphire 2.5ct</p>
-                            </motion.div>
+                        <div className="relative bg-gradient-to-br from-[#fafaf9] to-white p-8 lg:p-12 border border-gray-100 shadow-xl">
+                            {/* Decorative element */}
+                            <div className="absolute -top-3 -right-3 w-24 h-24 bg-[#0d9488]/10 -z-10" />
+                            <div className="absolute -bottom-3 -left-3 w-32 h-32 bg-[#0d9488]/5 -z-10" />
 
-                            <motion.div
-                                animate={{ y: [0, 10, 0] }}
-                                transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-                                className="absolute bottom-20 right-0 bg-white/10 backdrop-blur p-6 rounded-lg border border-white/20"
-                            >
-                                <p className="text-white/80 text-xs uppercase tracking-wider mb-2">Design Style</p>
-                                <p className="text-white font-heading text-lg">Classic Solitaire</p>
-                            </motion.div>
+                            <div className="space-y-6">
+                                {/* Sample custom piece preview */}
+                                <motion.div
+                                    animate={{ y: [0, -5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 4 }}
+                                    className="bg-white p-6 border border-gray-100 shadow-sm"
+                                >
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <Gem className="w-8 h-8 text-[#0d9488]" />
+                                        <div>
+                                            <p className="text-xs text-gray-500 uppercase tracking-wider">Selected Stone</p>
+                                            <p className="font-heading font-semibold">Blue Sapphire • 2.5ct</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
 
-                            <motion.div
-                                animate={{ y: [0, -15, 0] }}
-                                transition={{ repeat: Infinity, duration: 6, delay: 2 }}
-                                className="absolute top-1/3 right-1/4 bg-white/10 backdrop-blur p-6 rounded-lg border border-white/20"
-                            >
-                                <p className="text-white/80 text-xs uppercase tracking-wider mb-2">Metal</p>
-                                <p className="text-white font-heading text-lg">18k White Gold</p>
-                            </motion.div>
+                                <motion.div
+                                    animate={{ y: [0, 5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 5, delay: 1 }}
+                                    className="bg-white p-6 border border-gray-100 shadow-sm"
+                                >
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <Palette className="w-8 h-8 text-[#0d9488]" />
+                                        <div>
+                                            <p className="text-xs text-gray-500 uppercase tracking-wider">Design Style</p>
+                                            <p className="font-heading font-semibold">Classic Solitaire Ring</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                <motion.div
+                                    animate={{ y: [0, -3, 0] }}
+                                    transition={{ repeat: Infinity, duration: 6, delay: 2 }}
+                                    className="bg-white p-6 border border-gray-100 shadow-sm"
+                                >
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <Crown className="w-8 h-8 text-[#0d9488]" />
+                                        <div>
+                                            <p className="text-xs text-gray-500 uppercase tracking-wider">Metal</p>
+                                            <p className="font-heading font-semibold">18k White Gold</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
                         </div>
                     </motion.div>
 
