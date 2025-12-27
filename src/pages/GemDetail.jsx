@@ -1,14 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Shield, Award, FileCheck, Gem, Sparkles, Truck } from 'lucide-react';
+import { ArrowLeft, Shield, Award, FileCheck, Gem, Sparkles, Truck, ShoppingBag } from 'lucide-react';
 import { getGemstoneBySlug } from '../data/products';
 import { useCurrency } from '../context/CurrencyContext';
+import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const GemDetail = () => {
     const { slug } = useParams();
     const gem = getGemstoneBySlug(slug);
     const { currency } = useCurrency();
+    const { addItem } = useCart();
 
     if (!gem) {
         return (
@@ -79,22 +81,28 @@ const GemDetail = () => {
                                 <div><dt className="text-gray-500">Origin</dt><dd className="font-medium">{gem.origin}</dd></div>
                                 <div><dt className="text-gray-500">Treatment</dt><dd className="font-medium">{gem.treatment}</dd></div>
                                 <div><dt className="text-gray-500">Certificate</dt><dd className="font-medium">{gem.certificate}</dd></div>
+                                {gem.dimensions && (
+                                    <div><dt className="text-gray-500">Dimensions (L×W×H)</dt><dd className="font-medium">{gem.dimensions.length} × {gem.dimensions.width} × {gem.dimensions.height} mm</dd></div>
+                                )}
                             </dl>
                         </div>
 
                         {/* Actions */}
                         <div className="space-y-4">
+                            <button
+                                onClick={() => addItem(gem)}
+                                className="w-full py-4 bg-[#1c1917] text-white uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#0d9488] transition-colors shadow-lg"
+                            >
+                                <ShoppingBag className="w-5 h-5" />
+                                Buy This Gemstone
+                            </button>
                             <Link
                                 to="/bespoke"
                                 className="w-full py-4 bg-[#0d9488] text-white uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#0f766e] transition-colors shadow-lg shadow-[#0d9488]/20"
                             >
                                 <Sparkles className="w-5 h-5" />
-                                Create Custom Jewelry with This Stone
+                                Create Custom Jewelry
                             </Link>
-                            <button className="w-full py-4 border-2 border-[#1c1917] uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#1c1917] hover:text-white transition-colors">
-                                <Gem className="w-5 h-5" />
-                                Request More Information
-                            </button>
                         </div>
 
                         {/* Trust Badges */}
