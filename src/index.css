@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Outfit:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,8 +21,8 @@
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(212, 175, 55, 0.2);
 
-  --font-heading: 'Cinzel', serif;
-  --font-body: 'Outfit', sans-serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Raleway', sans-serif;
 
   --transition-fast: 0.3s ease;
   --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
