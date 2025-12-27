@@ -20,12 +20,15 @@ const Footer = () => {
             <div className="premium-container grid md:grid-cols-4 gap-12 mb-16">
                 {/* Brand */}
                 <div className="space-y-6">
-                    <Link to="/" className="block">
+                    <Link to="/" className="flex items-center gap-3">
                         <img
                             src="/images/logo.png"
                             alt="Carbon Ceylon"
                             className="h-12 w-auto brightness-0 invert"
                         />
+                        <span className="text-xl font-bold font-heading tracking-wider">
+                            CARBON<span className="text-[#0d9488]">CEYLON</span>
+                        </span>
                     </Link>
                     <p className="text-gray-400 text-sm leading-relaxed">
                         Ethically sourced gemstones from the heart of Sri Lanka.

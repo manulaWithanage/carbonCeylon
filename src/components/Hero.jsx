@@ -1,103 +1,116 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Gem, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center bg-[#fafaf9] overflow-hidden">
-            {/* Background Decorative Graphic */}
-            <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-                className="absolute top-0 right-0 w-1/2 h-full bg-white hidden lg:block skew-x-12 translate-x-20 z-0"
-            />
+        <section className="relative min-h-screen bg-[#0a0a0a] overflow-hidden">
+            {/* Grain Texture Overlay */}
+            <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
 
-            <div className="premium-container grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full pt-20">
+            {/* Subtle Glow Effects */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
 
-                {/* Text Content */}
-                <div className="space-y-8">
+            {/* Content */}
+            <div className="relative z-10 premium-container min-h-screen flex flex-col justify-center pt-24">
+
+                {/* Tagline */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-center mb-16"
+                >
+                    <span className="inline-block px-6 py-2 border border-[#0d9488]/30 text-[#0d9488] text-xs tracking-[0.4em] uppercase font-medium mb-6">
+                        From Mine to Masterpiece
+                    </span>
+                    <h1 className="text-5xl lg:text-7xl font-heading text-white leading-tight mb-6">
+                        Rare Gems.<br />
+                        <span className="text-[#0d9488] italic font-light">Timeless Jewelry.</span>
+                    </h1>
+                    <p className="text-gray-400 max-w-xl mx-auto text-lg font-light">
+                        Discover Ceylon's finest gemstones and bespoke jewelry crafted for collectors, connoisseurs, and lovers of brilliance.
+                    </p>
+                </motion.div>
+
+                {/* Split Cards */}
+                <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
+
+                    {/* Gemstones Card */}
                     <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="inline-block px-4 py-1 border border-[#0d9488] text-[#0d9488] text-xs tracking-[0.3em] font-medium uppercase font-heading"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        className="group relative"
                     >
-                        Est. 2025
+                        <Link to="/gemstones">
+                            <div className="relative overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-white/10 p-10 h-[400px] flex flex-col justify-between transition-all duration-500 hover:border-[#0d9488]/50">
+                                {/* Background Glow */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/0 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                <div className="relative z-10">
+                                    <Gem className="w-12 h-12 text-[#0d9488] mb-6" />
+                                    <h2 className="text-3xl font-heading text-white mb-3">Loose Gemstones</h2>
+                                    <p className="text-gray-400 font-light">
+                                        Investment-grade sapphires, rubies, and emeralds. Certified, unheated, and ethically sourced from Ceylon.
+                                    </p>
+                                </div>
+
+                                <div className="relative z-10 flex items-center gap-2 text-[#0d9488] font-medium group-hover:gap-4 transition-all">
+                                    <span className="uppercase tracking-wider text-sm">Explore Collection</span>
+                                    <ArrowRight className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </Link>
                     </motion.div>
 
-                    <motion.h1
-                        initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 0.8 }}
-                        className="text-5xl lg:text-7xl leading-[1.1]"
-                    >
-                        Elegance from the <br />
-                        <span className="italic font-light text-[#0d9488]">Heart of Ceylon</span>
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.6 }}
-                        className="text-lg lg:text-xl text-[#44403c] max-w-md font-light leading-relaxed"
-                    >
-                        Discover the world's finest sapphires and bespoke jewelry, crafted to capture light and hearts alike.
-                    </motion.p>
-
+                    {/* Fine Jewelry Card */}
                     <motion.div
-                        initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                        className="flex gap-6 pt-4"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="group relative"
                     >
-                        <Link
-                            to="/collection"
-                            className="bg-[#0d9488] text-white px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-[#0f766e] transition-colors duration-300 flex items-center gap-2 group"
-                        >
-                            Explore Collection
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                        <Link
-                            to="/bespoke"
-                            className="px-8 py-4 uppercase tracking-widest text-xs font-bold border border-[#1c1917] hover:border-[#0d9488] hover:text-[#0d9488] transition-colors duration-300"
-                        >
-                            Bespoke Service
+                        <Link to="/jewelry">
+                            <div className="relative overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-white/10 p-10 h-[400px] flex flex-col justify-between transition-all duration-500 hover:border-[#0d9488]/50">
+                                {/* Background Glow */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/0 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                <div className="relative z-10">
+                                    <Sparkles className="w-12 h-12 text-[#0d9488] mb-6" />
+                                    <h2 className="text-3xl font-heading text-white mb-3">Fine Jewelry</h2>
+                                    <p className="text-gray-400 font-light">
+                                        Handcrafted masterpieces featuring our signature gemstones set in precious metals by master artisans.
+                                    </p>
+                                </div>
+
+                                <div className="relative z-10 flex items-center gap-2 text-[#0d9488] font-medium group-hover:gap-4 transition-all">
+                                    <span className="uppercase tracking-wider text-sm">View Collection</span>
+                                    <ArrowRight className="w-5 h-5" />
+                                </div>
+                            </div>
                         </Link>
                     </motion.div>
                 </div>
 
-                {/* Image Content */}
+                {/* Custom Jewelry CTA */}
                 <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 1 }}
-                    className="relative h-[600px] flex items-center justify-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    className="text-center mt-16"
                 >
-                    <div className="absolute w-[90%] h-[90%] border-2 border-[#0d9488] opacity-30 top-4 right-4 z-0" />
-                    <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.5 }}
-                        className="relative z-10 w-full h-full overflow-hidden shadow-2xl"
+                    <Link
+                        to="/bespoke"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#0d9488] text-white uppercase tracking-widest text-sm font-medium hover:bg-[#0f766e] transition-colors"
                     >
-                        <img
-                            src="/images/hero-ring.png"
-                            alt="Blue Sapphire Ring"
-                            className="w-full h-full object-cover"
-                        />
-                    </motion.div>
-
-                    {/* Floating Badge */}
-                    <motion.div
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 1, type: "spring" }}
-                        className="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl max-w-[200px] hidden md:block z-20 border-t-4 border-[#0d9488]"
-                    >
-                        <p className="font-heading text-lg font-bold">Royal Blue</p>
-                        <p className="text-sm text-gray-500">2.5 Carat Sapphire</p>
-                        <p className="mt-2 text-[#0d9488] font-bold">From $12,500</p>
-                    </motion.div>
+                        <Gem className="w-5 h-5" />
+                        Create Custom Jewelry from Your Stone
+                    </Link>
+                    <p className="text-gray-500 text-sm mt-4">
+                        Select any gemstone and we'll craft your dream piece
+                    </p>
                 </motion.div>
 
             </div>
