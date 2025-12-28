@@ -9,7 +9,6 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Gemstones', path: '/gemstones' },
   { name: 'Jewelry', path: '/jewelry' },
-  { name: 'Bespoke', path: '/bespoke' },
   { name: 'Our Story', path: '/our-story' },
   { name: 'Contact', path: '/contact' }
 ];
@@ -43,15 +42,20 @@ const Navbar = () => {
       >
         <div className="premium-container flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-2">
             <img
-              src="/images/logo.png"
+              src="/logo_diamond.png"
               alt="Carbon Ceylon"
-              className="h-12 w-auto"
+              className="h-14 w-auto object-contain"
             />
-            <span className="text-xl font-bold font-heading tracking-wider text-[#1c1917]">
-              CARBON<span className="text-[#0d9488]">CEYLON</span>
-            </span>
+            <div className="flex flex-col items-start justify-center">
+              <span className="text-xl font-bold font-heading tracking-wider text-[#1c1917] leading-none mb-[2px]">
+                CARBON <span className="text-[#0d9488]">CEYLON</span>
+              </span>
+              <span className="text-[9px] uppercase tracking-[0.25em] text-[#0d9488] font-medium font-body leading-none ml-[1px]">
+                Absolutely Classy
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}

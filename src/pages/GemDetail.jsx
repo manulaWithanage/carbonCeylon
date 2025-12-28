@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Shield, Award, FileCheck, Sparkles, Truck, ShoppingBag, Check } from 'lucide-react';
-import { getGemstoneBySlug, gemColorOptions, getColorHex } from '../data/products';
+import { gemColorOptions, getColorHex } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const GemDetail = () => {
     const { slug } = useParams();
+    const { getGemstoneBySlug } = useProducts();
     const gem = getGemstoneBySlug(slug);
     const { currency } = useCurrency();
     const { addItem } = useCart();
@@ -92,8 +94,8 @@ const GemDetail = () => {
                                                 key={colorName}
                                                 onClick={() => setSelectedColor(colorName)}
                                                 className={`relative flex items-center gap-3 px-4 py-3 border-2 transition-all ${isSelected
-                                                        ? 'border-[#0d9488] bg-[#0d9488]/5'
-                                                        : 'border-gray-200 hover:border-gray-300'
+                                                    ? 'border-[#0d9488] bg-[#0d9488]/5'
+                                                    : 'border-gray-200 hover:border-gray-300'
                                                     }`}
                                             >
                                                 <span
@@ -139,11 +141,11 @@ const GemDetail = () => {
                                 Buy This Gemstone
                             </button>
                             <Link
-                                to="/bespoke"
+                                to={`/gem-visualizer?gem=${gem.slug}`}
                                 className="w-full py-4 bg-[#0d9488] text-white uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-[#0f766e] transition-colors shadow-lg shadow-[#0d9488]/20"
                             >
                                 <Sparkles className="w-5 h-5" />
-                                Create Custom Jewelry
+                                Visualize in Jewelry
                             </Link>
                         </div>
 

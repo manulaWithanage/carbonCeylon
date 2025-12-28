@@ -1,7 +1,19 @@
 {
-    "name": "carbonceylon",
-    "compatibility_date": "2025-12-27",
-    "assets": {
-        "directory": "./dist"
-    }
+	"name": "carbonceylon",
+	"compatibility_date": "2025-12-27",
+	"assets": {
+		"directory": "./dist"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "PRODUCTS_KV",
+			"id": "7da60239ff6c412bbcc7aa99078f5ad9"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "IMAGES_BUCKET",
+			"bucket_name": "carbonceylon-images"
+		}
+	]
 }

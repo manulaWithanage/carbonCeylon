@@ -127,10 +127,27 @@ export const metalOptions = [
 ];
 
 export const jewelryTypes = [
-    { name: "Ring", icon: "💍", description: "Engagement, cocktail, or statement ring" },
-    { name: "Necklace", icon: "📿", description: "Pendant, choker, or chain necklace" },
-    { name: "Bracelet", icon: "⌚", description: "Tennis, bangle, or charm bracelet" },
-    { name: "Earrings", icon: "💎", description: "Studs, drops, or hoops" }
+    {
+        name: "Ring",
+        icon: "💍",
+        image: "/images/hero-ring.png",
+        description: "Engagement, cocktail, or statement ring",
+        category: "Rings"
+    },
+    {
+        name: "Pendant",
+        icon: "📿",
+        image: "/images/sapphire-necklace.png",
+        description: "Pendant necklace with gemstone",
+        category: "Pendants"
+    },
+    {
+        name: "Earrings",
+        icon: "💎",
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400",
+        description: "Studs, drops, or hoops",
+        category: "Earrings"
+    }
 ];
 
 export const sapphireColors = [

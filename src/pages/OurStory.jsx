@@ -6,14 +6,19 @@ const OurStory = () => {
         <div className="min-h-screen bg-white">
             {/* Hero */}
             <div className="relative h-[60vh] bg-[#1c1917] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
+                <img
+                    src="/images/sapphire-ceylon-blue.png"
+                    alt="Ceylon Sapphire Background"
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 blur-sm scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="relative z-10 text-center text-white px-4"
+                    className="relative z-10 text-center px-4"
                 >
-                    <h1 className="text-5xl md:text-7xl font-heading mb-6">Our Story</h1>
-                    <p className="text-xl font-light max-w-2xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-heading mb-6 text-white drop-shadow-lg">Our Story</h1>
+                    <p className="text-xl font-light max-w-2xl mx-auto text-white/90 drop-shadow-md">
                         From the gem-rich lands of Ceylon to the world
                     </p>
                 </motion.div>

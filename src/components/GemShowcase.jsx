@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, Gem } from 'lucide-react';
-import { getFeaturedGemstones } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatPrice } from '../utils/currency';
 
 const GemShowcase = () => {
-    const gems = getFeaturedGemstones().slice(0, 4);
+    const { featuredGemstones } = useProducts();
+    const gems = featuredGemstones.slice(0, 4);
     const { currency } = useCurrency();
 
     return (
@@ -41,9 +42,9 @@ const GemShowcase = () => {
                             className="group"
                         >
                             <Link to={`/gemstone/${gem.slug}`}>
-                                <div className="relative bg-[#fafaf9] border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-[#0d9488]/30 hover:-translate-y-1">
+                                <div className="relative bg-white border border-gray-200 shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#0d9488]/30 hover:-translate-y-1">
                                     {/* Image */}
-                                    <div className="h-[280px] overflow-hidden relative">
+                                    <div className="h-[280px] overflow-hidden relative bg-gradient-to-br from-stone-50 to-stone-100">
                                         <img
                                             src={gem.images[0]}
                                             alt={gem.name}

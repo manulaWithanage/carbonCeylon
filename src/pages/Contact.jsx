@@ -86,16 +86,7 @@ const Contact = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-4">
-                                    <MapPin className="w-5 h-5 text-[#0d9488] shrink-0 mt-1" />
-                                    <div>
-                                        <p className="font-medium">Showroom</p>
-                                        <p className="text-[#44403c]">
-                                            42 Gem Street<br />
-                                            Colombo 03, Sri Lanka
-                                        </p>
-                                    </div>
-                                </div>
+
 
                                 <div className="flex gap-4">
                                     <Clock className="w-5 h-5 text-[#0d9488] shrink-0 mt-1" />

@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Filter, X, Sparkles } from 'lucide-react';
-import { jewelry, jewelryCategories } from '../data/products';
+import { jewelryCategories } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const Jewelry = () => {
+    const { jewelry } = useProducts();
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [showFilters, setShowFilters] = useState(false);
     const { currency } = useCurrency();
@@ -64,8 +66,8 @@ const Jewelry = () => {
                                         key={cat}
                                         onClick={() => { setSelectedCategory(cat); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors ${selectedCategory === cat
-                                                ? 'bg-[#0d9488] text-white'
-                                                : 'hover:bg-gray-100'
+                                            ? 'bg-[#0d9488] text-white'
+                                            : 'hover:bg-gray-100'
                                             }`}
                                     >
                                         {cat}

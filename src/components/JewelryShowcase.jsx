@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { getFeaturedJewelry } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const JewelryShowcase = () => {
-    const products = getFeaturedJewelry().slice(0, 3);
+    const { featuredJewelry } = useProducts();
+    const products = featuredJewelry.slice(0, 3);
     const { currency } = useCurrency();
     const { addItem } = useCart();
 

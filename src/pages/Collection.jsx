@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Filter, X } from 'lucide-react';
-import { products, categories, gemTypes } from '../data/products';
+import { categories, gemTypes } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const Collection = () => {
+    const { products } = useProducts();
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedGem, setSelectedGem] = useState('All');
     const [showFilters, setShowFilters] = useState(false);
@@ -69,8 +71,8 @@ const Collection = () => {
                                         key={cat}
                                         onClick={() => { setSelectedCategory(cat); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors ${selectedCategory === cat
-                                                ? 'bg-[#0d9488] text-white'
-                                                : 'hover:bg-[#f3e5ab]'
+                                            ? 'bg-[#0d9488] text-white'
+                                            : 'hover:bg-[#f3e5ab]'
                                             }`}
                                     >
                                         {cat}
@@ -87,8 +89,8 @@ const Collection = () => {
                                         key={gem}
                                         onClick={() => { setSelectedGem(gem); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors ${selectedGem === gem
-                                                ? 'bg-[#0d9488] text-white'
-                                                : 'hover:bg-[#f3e5ab]'
+                                            ? 'bg-[#0d9488] text-white'
+                                            : 'hover:bg-[#f3e5ab]'
                                             }`}
                                     >
                                         {gem}

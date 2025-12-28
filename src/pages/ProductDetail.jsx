@@ -1,14 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShoppingBag, Shield, Truck, Award } from 'lucide-react';
-import { getProductBySlug } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const ProductDetail = () => {
     const { slug } = useParams();
-    const product = getProductBySlug(slug);
+    const { getJewelryBySlug } = useProducts();
+    const product = getJewelryBySlug(slug);
     const { currency } = useCurrency();
     const { addItem } = useCart();
 

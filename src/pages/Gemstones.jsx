@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Filter, X, Shield, Gem } from 'lucide-react';
-import { gemstones, gemCategories } from '../data/products';
+import { gemCategories } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { formatPrice } from '../utils/currency';
 
 const Gemstones = () => {
+    const { gemstones } = useProducts();
     const [selectedGem, setSelectedGem] = useState('All');
     const [selectedTreatment, setSelectedTreatment] = useState('All');
     const [showFilters, setShowFilters] = useState(false);
@@ -68,8 +70,8 @@ const Gemstones = () => {
                                         key={gem}
                                         onClick={() => { setSelectedGem(gem); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors rounded ${selectedGem === gem
-                                                ? 'bg-[#0d9488] text-white'
-                                                : 'text-[#44403c] hover:bg-[#0d9488]/10'
+                                            ? 'bg-[#0d9488] text-white'
+                                            : 'text-[#44403c] hover:bg-[#0d9488]/10'
                                             }`}
                                     >
                                         {gem}
@@ -81,13 +83,13 @@ const Gemstones = () => {
                         <div>
                             <h3 className="font-heading text-lg text-[#1c1917] mb-4">Treatment</h3>
                             <div className="space-y-1">
-                                {['All', 'Unheated', 'Heated', 'Minor Oil'].map(treatment => (
+                                {['All', 'Unheated', 'Heated'].map(treatment => (
                                     <button
                                         key={treatment}
                                         onClick={() => { setSelectedTreatment(treatment); setShowFilters(false); }}
                                         className={`block w-full text-left py-2 px-3 text-sm transition-colors rounded ${selectedTreatment === treatment
-                                                ? 'bg-[#0d9488] text-white'
-                                                : 'text-[#44403c] hover:bg-[#0d9488]/10'
+                                            ? 'bg-[#0d9488] text-white'
+                                            : 'text-[#44403c] hover:bg-[#0d9488]/10'
                                             }`}
                                     >
                                         {treatment}
@@ -124,9 +126,11 @@ const Gemstones = () => {
                                                     )}
                                                 </div>
                                                 <div className="absolute top-4 right-4">
-                                                    <span className="bg-white/90 text-[#1c1917] text-[10px] px-2 py-1 uppercase tracking-wider shadow-sm">
-                                                        {gem.certificate}
-                                                    </span>
+                                                    {gem.certificate && gem.certificate !== "" && (
+                                                        <span className="bg-white/90 text-[#1c1917] text-[10px] px-2 py-1 uppercase tracking-wider shadow-sm">
+                                                            {gem.certificate}
+                                                        </span>
+                                                    )}
                                                 </div>
                                             </div>
 

@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getFeaturedProducts } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/currency';
 
 const ProductShowcase = () => {
-    const products = getFeaturedProducts().slice(0, 3);
+    const { featuredGemstones, featuredJewelry } = useProducts();
+    const products = [...featuredGemstones, ...featuredJewelry].slice(0, 3);
     const { currency } = useCurrency();
     const { addItem } = useCart();
 

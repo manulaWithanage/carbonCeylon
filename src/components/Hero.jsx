@@ -1,140 +1,206 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Award, Truck, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
+
+const gemData = [
+    {
+        id: "blue",
+        title: "Royal Blue",
+        subtitle: "Ceylon Sapphire",
+        color: "#1e40af",
+        img: "/images/hero-sapphire-blue.png",
+        desc: "Vivid blue sapphire engagement ring with diamond halo"
+    },
+    {
+        id: "pink",
+        title: "Vivid Pink",
+        subtitle: "Ceylon Sapphire",
+        color: "#ec4899",
+        img: "/images/hero-sapphire-pink.png",
+        desc: "Hot pink sapphire cocktail ring in rose gold"
+    },
+    {
+        id: "yellow",
+        title: "Canary Yellow",
+        subtitle: "Ceylon Sapphire",
+        color: "#eab308",
+        img: "/images/hero-sapphire-yellow.png",
+        desc: "Radiant yellow sapphire ring with diamond accents"
+    }
+];
 
 const Hero = () => {
+    const [activeGem, setActiveGem] = useState(0);
+
+    const currentGem = gemData[activeGem];
+
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-[#fafaf9] via-white to-[#f5f5f4] overflow-hidden">
-            {/* Subtle Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.02]" style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }} />
+        <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-stone-50 via-white to-stone-100">
 
-            {/* Decorative Circle */}
-            <div className="absolute top-20 right-20 w-96 h-96 bg-[#0d9488]/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#0d9488]/3 rounded-full blur-3xl" />
+            {/* Animated gradient orb */}
+            <motion.div
+                className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl opacity-20"
+                style={{ backgroundColor: currentGem.color }}
+                animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.2, 0.3, 0.2]
+                }}
+                transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                }}
+            />
 
-            <div className="relative z-10 premium-container min-h-screen flex items-center pt-24">
-                <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
+            {/* Preloader */}
+            <div className="hidden">
+                {gemData.map((gem) => <img key={gem.id} src={gem.img} alt="" />)}
+            </div>
 
-                    {/* Left Content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="space-y-8"
-                    >
-                        {/* Trust Badge */}
-                        <div className="flex items-center gap-4">
-                            <div className="flex -space-x-1">
-                                {[1, 2, 3, 4, 5].map(i => (
-                                    <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                ))}
-                            </div>
-                            <span className="text-sm text-[#44403c]">Trusted by 2,500+ collectors worldwide</span>
+            <div className="premium-container relative z-10 w-full py-20">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+                    {/* LEFT - Content */}
+                    <div className="space-y-12 text-center lg:text-left">
+
+                        {/* Eyebrow with icon */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="flex items-center gap-2 justify-center lg:justify-start"
+                        >
+                            <Sparkles className="w-4 h-4 text-teal-600" />
+                            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-stone-500">
+                                Ethically Sourced from Ceylon
+                            </span>
+                        </motion.div>
+
+                        {/* Dynamic Headlines */}
+                        <div className="space-y-4">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentGem.id}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -30 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <h1 className="font-heading text-6xl lg:text-8xl font-bold leading-[0.95] text-stone-900">
+                                        {currentGem.title}
+                                    </h1>
+                                    <p className="font-heading text-4xl lg:text-6xl italic text-stone-600 mt-3">
+                                        {currentGem.subtitle}
+                                    </p>
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl font-heading text-[#1c1917] leading-[1.1]">
-                            Ceylon's Finest<br />
-                            <span className="text-[#0d9488] italic font-light">Gemstones & Jewelry</span>
-                        </h1>
-
-                        <p className="text-lg text-[#44403c] max-w-lg leading-relaxed">
-                            Ethically sourced, GIA-certified gemstones and bespoke jewelry crafted by master artisans.
-                            Every piece tells a story of brilliance.
+                        {/* Description */}
+                        <p className="text-lg text-stone-600 max-w-md mx-auto lg:mx-0 leading-relaxed">
+                            Discover the world's most coveted gemstones. Each piece meticulously selected for exceptional color, clarity, and brilliance.
                         </p>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-wrap gap-4 pt-4">
+                        {/* Color Selector */}
+                        <div className="flex items-center gap-4 justify-center lg:justify-start">
+                            <span className="text-sm font-medium text-stone-400 mr-2">EXPLORE</span>
+                            {gemData.map((gem, index) => (
+                                <button
+                                    key={gem.id}
+                                    onClick={() => setActiveGem(index)}
+                                    className="group relative"
+                                    aria-label={`View ${gem.title}`}
+                                >
+                                    <div
+                                        className={`w-14 h-14 rounded-full border-2 transition-all duration-500 flex items-center justify-center ${activeGem === index
+                                                ? 'border-stone-900 scale-110'
+                                                : 'border-stone-300 hover:border-stone-500 hover:scale-105'
+                                            }`}
+                                        style={{ borderColor: activeGem === index ? currentGem.color : undefined }}
+                                    >
+                                        <div
+                                            className={`w-8 h-8 rounded-full transition-all duration-500 ${activeGem === index ? 'scale-100' : 'scale-75 opacity-60'
+                                                }`}
+                                            style={{ backgroundColor: gem.color }}
+                                        />
+                                    </div>
+                                    {activeGem === index && (
+                                        <motion.div
+                                            layoutId="activeGem"
+                                            className="absolute -inset-2 rounded-full"
+                                            style={{
+                                                boxShadow: `0 0 20px ${gem.color}40`
+                                            }}
+                                        />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* CTA */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link
                                 to="/gemstones"
-                                className="bg-[#0d9488] text-white px-8 py-4 uppercase tracking-widest text-sm font-medium hover:bg-[#0f766e] transition-all duration-300 flex items-center gap-2 group shadow-lg shadow-[#0d9488]/20"
+                                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-stone-900 text-white font-semibold text-sm tracking-wider uppercase hover:bg-stone-800 transition-all duration-300 shadow-xl hover:shadow-2xl"
                             >
-                                Explore Gemstones
+                                View Collection
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
-                                to="/jewelry"
-                                className="px-8 py-4 uppercase tracking-widest text-sm font-medium border-2 border-[#1c1917] hover:bg-[#1c1917] hover:text-white transition-all duration-300"
+                                to="/bespoke"
+                                className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-stone-300 text-stone-900 font-semibold text-sm tracking-wider uppercase hover:border-stone-900 transition-all duration-300"
                             >
-                                Shop Jewelry
+                                Custom Design
                             </Link>
                         </div>
+                    </div>
 
-                        {/* Trust Indicators */}
-                        <div className="flex flex-wrap gap-8 pt-8 border-t border-gray-200">
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-[#0d9488]/10 flex items-center justify-center">
-                                    <Shield className="w-5 h-5 text-[#0d9488]" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-sm">Certified Authentic</p>
-                                    <p className="text-xs text-gray-500">GIA & GRS Certified</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-[#0d9488]/10 flex items-center justify-center">
-                                    <Truck className="w-5 h-5 text-[#0d9488]" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-sm">Insured Shipping</p>
-                                    <p className="text-xs text-gray-500">Worldwide Delivery</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-[#0d9488]/10 flex items-center justify-center">
-                                    <Award className="w-5 h-5 text-[#0d9488]" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-sm">Lifetime Guarantee</p>
-                                    <p className="text-xs text-gray-500">Quality Assured</p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+                    {/* RIGHT - Image */}
+                    <div className="relative h-[500px] lg:h-[700px]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentGem.id}
+                                initial={{ opacity: 0, scale: 0.9, rotate: -10 }}
+                                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                exit={{ opacity: 0, scale: 1.1, rotate: 10 }}
+                                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute inset-0"
+                            >
+                                {/* Image container with subtle glow */}
+                                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white shadow-2xl">
+                                    {/* Subtle gradient overlay */}
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-br opacity-10 mix-blend-overlay"
+                                        style={{
+                                            background: `linear-gradient(135deg, ${currentGem.color}20, transparent 70%)`
+                                        }}
+                                    />
 
-                    {/* Right - Hero Image */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="relative"
-                    >
-                        {/* Main Image Container */}
-                        <div className="relative">
-                            {/* Decorative border */}
-                            <div className="absolute -inset-4 border border-[#0d9488]/20 -z-10" />
-                            <div className="absolute -inset-8 border border-[#0d9488]/10 -z-20" />
+                                    <img
+                                        src={currentGem.img}
+                                        alt={currentGem.desc}
+                                        className="w-full h-full object-cover object-center"
+                                    />
 
-                            <div className="relative overflow-hidden bg-gradient-to-br from-white to-[#fafaf9] shadow-2xl shadow-black/10">
-                                <img
-                                    src="/images/hero-ring.png"
-                                    alt="Ceylon Blue Sapphire Ring"
-                                    className="w-full h-[600px] object-cover"
-                                />
-
-                                {/* Floating Badge */}
-                                <motion.div
-                                    initial={{ y: 30, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.8 }}
-                                    className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 shadow-xl"
-                                >
-                                    <div className="flex justify-between items-center">
-                                        <div>
-                                            <p className="text-[10px] tracking-[0.2em] uppercase text-[#0d9488] mb-1">Featured</p>
-                                            <p className="font-heading text-xl">Royal Blue Sapphire</p>
-                                            <p className="text-sm text-gray-500">2.5 Carat • Unheated • GIA Certified</p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="text-2xl font-bold text-[#0d9488]">$12,500</p>
-                                            <Link to="/product/royal-blue-sapphire-ring" className="text-xs text-[#0d9488] underline">View Details</Link>
-                                        </div>
+                                    {/* Floating label */}
+                                    <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md px-6 py-4 rounded-lg shadow-lg">
+                                        <p className="text-xs font-bold tracking-wider uppercase text-stone-500 mb-1">
+                                            Featured
+                                        </p>
+                                        <p className="text-lg font-heading text-stone-900">
+                                            {currentGem.title}
+                                        </p>
                                     </div>
-                                </motion.div>
-                            </div>
-                        </div>
-                    </motion.div>
+                                </div>
+
+                                {/* Decorative glow */}
+                                <div
+                                    className="absolute -inset-4 rounded-3xl blur-2xl opacity-30 -z-10"
+                                    style={{ backgroundColor: currentGem.color }}
+                                />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
 
                 </div>
             </div>
